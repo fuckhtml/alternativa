@@ -396,24 +396,48 @@
       </div>
 
       <script type="text/javascript">
-        const brandsNode = document.querySelector('.brands');
-        const brandsListNode = brandsNode.querySelector('.brands__list');
-        const brandsSwipesNode = brandsNode.querySelector('.brands__swipes');
-        var brandsListPosition = 0;
 
-        brandsSwipesNode.addEventListener('click', function(event) {
-          if (event.target.classList.contains('brands__swipe--prev')) {
-            //if (brandsListPosition <= 0) {
-              brandsListPosition += 270;            
-            //}
-          } else if (event.target.classList.contains('brands__swipe--next')) {
-            //if (brandsListPosition <= 0) {
-              brandsListPosition -= 270;              
-            //}
-          }
-          // console.log(brandsListPosition);
-          brandsListNode.style = 'transform: translateX(' + brandsListPosition + 'px);'
-        })
+      	(function() {
+
+	        const brandsNode = document.querySelector('.brands');
+	        const brandsListNode = brandsNode.querySelector('.brands__list');
+	        const brandsListNodeState = brandsNode.querySelector('.brands__list').cloneNode(true);
+	        const brandsSwipesNode = brandsNode.querySelector('.brands__swipes');
+	        let brandsListPosition = 0; // -1 * brandsListNode.clientWidth / 2;
+
+
+	        console.log(brandsListNode.cloneNode(true).children);
+
+	       	// brandsNode.hidden = true;
+	       	// let cardsList = brandsListNode.cloneNode(true);
+	       	// for (let loop = 0; loop < 3; loop++) {
+		       // 	for (let i = 0; i < cardsList.length; i++) {
+		       // 		let elem = cardsList[i].cloneNode(true);
+		       // 		brandsListNode.appendChild(elem);
+		       // 	}
+	       	// }
+	       	// brandsNode.hidden = false;
+	       	// brandsListNode.style = 'transform: translateX(' + brandsListPosition + 'px);';
+
+	        brandsSwipesNode.addEventListener('click', function(event) {
+	        	let firstCardNode = brandsListNode.querySelector('a:first-child');
+	        	let lastCardNode = brandsListNode.querySelector('a:last-child');
+	          if (event.target.classList.contains('brands__swipe--prev')) {
+	              // brandsListPosition += 270;
+
+								brandsListNode.insertBefore(lastCardNode, firstCardNode);
+								//brandsListNode.insertBefore(brandsListNodeState.children, firstCardNode);
+	          } else if (event.target.classList.contains('brands__swipe--next')) {
+	              // brandsListPosition -= 270;
+
+								brandsListNode.appendChild(firstCardNode);
+								//brandsListNode.insertBefore(brandsListNodeState.children, false)
+	          }
+	          brandsListNode.style = 'transform: translateX(' + brandsListPosition + 'px);'
+	        })
+
+      	}())
+
       </script>
     </section>
 
