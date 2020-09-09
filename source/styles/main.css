@@ -8,6 +8,7 @@
 body {
     display: block;
     min-width: 320px;
+    max-width: 100%;
 
     padding-top: 160px;
     padding-bottom: 120px;
@@ -1611,4 +1612,364 @@ body {
         0px 7px 5px 0px rgba(145, 44, 9, 0.09),
         0px 12px 13px 0px rgba(243, 128, 0, 0.34);
 
+}
+
+
+.production {
+  margin-bottom: 100px;
+
+  color: #5d5d5d;
+  padding-top: 63px;
+}
+.production .wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 1200) {
+  .production .wrapper {
+    display: block;
+    justify-content: flex-start;
+  }
+}
+
+.production__img {
+  display: none;
+
+  margin-left: 121px;
+  margin-right: 58px;
+}
+
+@media (min-width: 1200px) {
+  .production__img {
+    display: block;
+  }
+}
+
+.production__description {
+  position: relative;
+
+  box-sizing: border-box;
+  width: 670px;
+
+  padding-left: 21px;
+  padding-top: 23px;
+  padding-bottom: 23px;
+
+  border: 1px solid #f38001;
+}
+
+@media (min-width: 1200px) {
+  .production__description {
+    padding-left: 42px;
+  }
+}
+
+.production__description::before {
+  content: "";
+  position: absolute;
+  left: -49px;
+  top: -1px;
+
+  display: none;
+  box-sizing: border-box;
+  width: 50px;
+  height: 40px;
+
+  background-color: white;
+  background-image: url('../images/production/triangle.png');
+}
+
+@media (min-width: 1200px) {
+  .production__description::before {
+    display: block;
+  }
+}
+
+.production__title {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  font-weight: bold;
+  line-height: 1.375;
+  text-align: left;
+}
+
+.production__ul {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 40px;
+  border-left: 1px solid #f38001;
+}
+
+.production__li {
+  position: relative;
+
+  margin: 0;
+  margin-bottom: 10px;
+
+  padding-left: 30px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.production__li:last-child {
+  margin-bottom: 0;
+}
+
+.production__li::before {
+  content: "";
+
+  position: absolute;
+  left: -5px;
+  top: 5px;
+
+  display: block;
+  width: 10px;
+  height: 10px;
+
+  background-color: #f38001;
+  border-radius: 50%;
+}
+.production__li::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 10px;
+
+  display: block;
+  width: 25px;
+  height: 1px;
+  background-color: #f38001;
+}
+
+.production__li span {
+  position: absolute;
+  top: 10px;
+  left: -40px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(243, 128, 1);
+  font-weight: bold;
+  line-height: 0.001;
+}
+
+/* request */
+
+.request {
+  color: #5d5d5d;
+}
+.request__title {
+  margin: 0;
+  margin-bottom: 50px;
+  font-size: 24px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.request__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+
+  box-sizing: border-box;
+  max-width: 1030px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  background-color: #fafafa;
+}
+@media (min-width: 1200px) {
+  .request__form {
+    justify-content: space-between;
+  }
+}
+
+.request__form-section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 470px;
+  border: none;
+}
+
+.request__form-section--1,
+.request__form-section--2 {
+  max-width: 470px;
+  margin-bottom: 30px;
+}
+
+.request__form-section--3 {
+  width: 100%;
+  text-align: center;
+}
+
+.request__form input {
+  display: block;
+  margin-bottom: 30px;
+
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  line-height: 50px;
+
+  border: none;
+  outline: none;
+  background-color: white;
+
+  border-radius: 25px;
+}
+
+.request__form input:last-child {
+  margin-bottom: 0;
+}
+
+.request__form textarea {
+  display: block;
+  margin-bottom: 30px;
+
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  height: 130px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  line-height: 1.5;
+  text-align: left;
+
+  border: none;
+  outline: none;
+  background-color: white;
+
+  border-radius: 25px;
+
+  resize: vertical;
+}
+
+.request__form-file {
+  display: inline-block;
+  margin-bottom: 40px;
+
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: rgb(93, 93, 93);
+  line-height: 50px;
+  text-align: left;
+
+  color: #f38001;
+
+  border: 1px solid #f38001;
+  outline: none;
+  background-color: white;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+}
+
+.request__form-section--2 p {
+  max-width: 320px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.request__form-submit {
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-size: 16px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  color: rgb(93, 93, 93);
+  line-height: 50px;
+
+  color: white;
+
+  border: none;
+  outline: none;
+  background-color: #f38001;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+}
+
+.request__form-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.request__form-checkbox input {
+  display: none;
+}
+
+.request__form-checkbox input:checked + .checkbox-indicator {
+  background-image: url('../images/icons/check.png');
+}
+.request__form-checkbox  .checkbox-indicator {
+  flex-shrink: 0;
+  margin-right: 15px;
+
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: #f38001;
+  margin-left: auto;
+  border-radius: 3px;
+
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.request__form-checkbox .text {
+  margin-right: auto;
+}
+
+.request__form-checkbox a {
+  color: inherit;
 }
