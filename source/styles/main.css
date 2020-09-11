@@ -1973,3 +1973,105 @@ body {
 .request__form-checkbox a {
   color: inherit;
 }
+
+
+/* specorder */
+
+.specorder {
+  padding-top: 65px;
+  padding-bottom: 80px;
+
+  color: #5d5d5d;
+  background-color: #fafafa;
+}
+
+.specorder__title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.specorder__intro {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+
+  margin: 0;
+  margin-bottom: 80px;
+}
+
+.specorder__list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.specorder__card {
+  position: relative;
+  width: 180px;
+  padding-right: 45px;
+}
+
+.specorder__card:last-child {
+  padding-right: 0;
+}
+
+.specorder__card::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 20px;
+  background-image: url('../images/specorder/arr.png');
+
+  position: absolute;
+  top: 80px;
+  right: 0;
+}
+
+.specorder__card:last-child::before {
+  display: none;
+}
+
+.specorder__card-icon {
+  width: 180px;
+  height: 180px;
+
+  background-image: url('../images/specorder/bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 12px 20px rgba(255, 153, 0, .2);
+
+  border-radius: 50%;
+}
+
+.specorder__card-icon--1 {
+  background-image: url('../images/specorder/specorder-1.png'),
+                    url('../images/specorder/bg.png');
+}
+.specorder__card-icon--2 {
+  background-image: url('../images/specorder/specorder-2.png'),
+                    url('../images/specorder/bg.png');
+}
+.specorder__card-icon--3 {
+  background-image: url('../images/specorder/specorder-3.png'),
+                    url('../images/specorder/bg.png');
+}
+.specorder__card-icon--4 {
+  background-image: url('../images/specorder/specorder-4.png'),
+                    url('../images/specorder/bg.png');
+}
+.specorder__card-icon--5 {
+  background-image: url('../images/specorder/specorder-5.png'),
+                    url('../images/specorder/bg.png');
+}
+
+.specorder__card-title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.375;
+  text-align: center;
+}
