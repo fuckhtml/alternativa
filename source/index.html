@@ -402,40 +402,78 @@
 
 	        const brandsNode = document.querySelector('.brands');
 	        const brandsListNode = brandsNode.querySelector('.brands__list');
-	        const brandsListNodeState = brandsNode.querySelector('.brands__list').cloneNode(true);
+	        const brandsListNodeStatic = brandsListNode.cloneNode(true);
 	        const brandsSwipesNode = brandsNode.querySelector('.brands__swipes');
-	        let brandsListPosition = 0; // -1 * brandsListNode.clientWidth / 2;
+
+          const margin = 30;
+          const shiftWidth = brandsListNode.querySelector('.brands__link').clientWidth + margin;
+          let brandsListPos = 0;
 
 
-	        console.log(brandsListNode.cloneNode(true).children);
+          const brandsLinkAmount = brandsListNodeStatic.children.length;  
 
-	       	// brandsNode.hidden = true;
-	       	// let cardsList = brandsListNode.cloneNode(true);
-	       	// for (let loop = 0; loop < 3; loop++) {
-		       // 	for (let i = 0; i < cardsList.length; i++) {
-		       // 		let elem = cardsList[i].cloneNode(true);
-		       // 		brandsListNode.appendChild(elem);
-		       // 	}
-	       	// }
-	       	// brandsNode.hidden = false;
-	       	// brandsListNode.style = 'transform: translateX(' + brandsListPosition + 'px);';
+          console.log(brandsListNodeStatic.children.length);
 
-	        brandsSwipesNode.addEventListener('click', function(event) {
-	        	let firstCardNode = brandsListNode.querySelector('a:first-child');
-	        	let lastCardNode = brandsListNode.querySelector('a:last-child');
-	          if (event.target.classList.contains('brands__swipe--prev')) {
-	              // brandsListPosition += 270;
+          // Preparation
+          const addBeg = function() {
+            for (let i = 0; i < brandsListNodeStatic.children.length; i++) {
+              // добавить вперед
+              let elem = brandsListNodeStatic.children[i].cloneNode(true);
+              console.log(elem);
+              brandsListNode.insertBefore(elem, brandsListNode.children[i]);
+            }
+          }
+          const addEnd = function() {
+            for (let i = 0; i < brandsListNodeStatic.children.length; i++) {
+              // добавить назад
+              let elem = brandsListNodeStatic.children[i].cloneNode(true);
+              console.log(elem);
+              brandsListNode.appendChild(elem);
+            }
+          }
+          const removeBeg = function() {
+            for (let i = 0; i < brandsListNodeStatic.children.length; i++) {
+              brandsListNode.removeChild(brandsListNode.children[0]);
+            }
+          }
+          const removeEnd = function() {}
 
-								brandsListNode.insertBefore(lastCardNode, firstCardNode);
-								//brandsListNode.insertBefore(brandsListNodeState.children, firstCardNode);
-	          } else if (event.target.classList.contains('brands__swipe--next')) {
-	              // brandsListPosition -= 270;
+          addBeg();
+          //removeBeg();
+          addEnd();
+          brandsListPos = -1 * shiftWidth * brandsLinkAmount;
+          brandsListNode.style = 'transform: translateX(' + brandsListPos + 'px);';
 
-								brandsListNode.appendChild(firstCardNode);
-								//brandsListNode.insertBefore(brandsListNodeState.children, false)
-	          }
-	          brandsListNode.style = 'transform: translateX(' + brandsListPosition + 'px);'
-	        })
+          let clickCounter = 0;
+
+          // Interaction
+          brandsSwipesNode.addEventListener('click', function(event) {
+            if (event.target.classList.contains('brands__swipe--prev')) {
+              // добавить назад
+              brandsListPos = brandsListPos + shiftWidth;
+              
+              clickCounter++;
+              console.log(clickCounter);
+
+              if (clickCounter == brandsLinkAmount) {
+                brandsListPos = brandsListPos - (shiftWidth * brandsLinkAmount);
+                clickCounter = 0;
+              }
+            } else if (event.target.classList.contains('brands__swipe--next')) {
+              // добавить вперед
+              brandsListPos = brandsListPos - shiftWidth; 
+              clickCounter--;
+              console.log(clickCounter);
+
+              if (clickCounter == (-1 * brandsLinkAmount)) {
+                brandsListPos = brandsListPos + (shiftWidth * brandsLinkAmount);
+                clickCounter = 0;
+              }
+              
+            }
+            brandsListNode.style = 'transform: translateX(' + brandsListPos + 'px);';
+            
+          })
 
       	}())
 
